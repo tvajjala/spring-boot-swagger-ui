@@ -24,12 +24,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         LOGGER.info("Adding resource handlers to the swagger UI");
-        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/swagger-ui/swagger-ui.html");
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/static/swagger-ui.html");
         registry.addResourceHandler("api/**").addResourceLocations("classpath:/api-doc/");
-        registry.addResourceHandler("*.css").addResourceLocations("classpath:/swagger-ui/");
-        registry.addResourceHandler("*.js").addResourceLocations("classpath:/swagger-ui/");
-        registry.addResourceHandler("images/**").addResourceLocations("classpath:/images/");
-
     }
 
 
@@ -43,6 +39,5 @@ public class SwaggerConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addRedirectViewController("/", "swagger-ui.html");
     }
-
 
 }
